@@ -13,7 +13,7 @@ const VictoryView = (props: {
       <Text>
         {props.points}/{props.max}
       </Text>
-      <Button onPress={props.restart} title="Restart" />
+      <Button onPress={props.restart} title="New Quiz" />
     </>
   );
 };

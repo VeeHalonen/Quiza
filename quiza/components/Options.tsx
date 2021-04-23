@@ -16,6 +16,8 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
       {/* NUMBER OF QUESTIONS PICKER */}
       <Text>Number of Questions</Text>
       <DropDownPicker
+        zIndex={5000}
+        zIndexInverse={6000}
         items={[
           {
             label: DEFAULT_OPTIONS.amount.toString(),
@@ -31,41 +33,45 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
           },
         ]}
         defaultValue={DEFAULT_OPTIONS.amount}
+        containerStyle={{ height: 40, width: "100%" }}
         itemStyle={{
           justifyContent: "flex-start",
         }}
         onChangeItem={(item) => setAmount(item.value)}
       />
       {/* DIFFICULTY PICKER */}
-      {/* The zIndex is to prevent first dropdown from rendering behind these */}
+      <Text>Difficulty</Text>
+      <DropDownPicker
+        zIndex={4000}
+        zIndexInverse={5500}
+        items={[
+          {
+            label: "All",
+            value: EDifficulty.ALL,
+          },
+          {
+            label: "Easy",
+            value: EDifficulty.EASY,
+          },
+          {
+            label: "Medium",
+            value: EDifficulty.MEDIUM,
+          },
+          {
+            label: "Hard",
+            value: EDifficulty.HARD,
+          },
+        ]}
+        defaultValue={EDifficulty.ALL}
+        containerStyle={{ height: 40, width: "100%" }}
+        itemStyle={{
+          justifyContent: "flex-start",
+        }}
+        onChangeItem={(item) => setDifficulty(item.value)}
+      />
+      {/* START BUTTON */}
+      {/* The zIndex is to prevent it from rendering on top of the dropdowns */}
       <View style={{ zIndex: -5 }}>
-        <Text>Difficulty</Text>
-        <DropDownPicker
-          items={[
-            {
-              label: "All",
-              value: EDifficulty.ALL,
-            },
-            {
-              label: "Easy",
-              value: EDifficulty.EASY,
-            },
-            {
-              label: "Medium",
-              value: EDifficulty.MEDIUM,
-            },
-            {
-              label: "Hard",
-              value: EDifficulty.HARD,
-            },
-          ]}
-          defaultValue={EDifficulty.ALL}
-          itemStyle={{
-            justifyContent: "flex-start",
-          }}
-          onChangeItem={(item) => setDifficulty(item.value)}
-        />
-        {/* START BUTTON */}
         <Button
           onPress={() => props.startQuiz({ amount, difficulty })}
           title="Start Quiz"

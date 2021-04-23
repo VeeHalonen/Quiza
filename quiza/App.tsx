@@ -3,7 +3,8 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Questions from "./components/Questions";
 import Options from "./components/Options";
-import { OPTIONS, DEFAULT_OPTIONS } from "./helpers/options";
+import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "./helpers/options";
+import DropDownPicker from "react-native-dropdown-picker";
 
 enum EStates {
   OPTIONS,
@@ -26,7 +27,11 @@ export default function App() {
 
   // Options UI
   if (status === EStates.OPTIONS) {
-    return <Options startQuiz={startQuiz} />;
+    return (
+      <View style={styles.container}>
+        <Options startQuiz={startQuiz} />
+      </View>
+    );
   }
 
   // Quiz UI
