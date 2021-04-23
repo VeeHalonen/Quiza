@@ -22,7 +22,9 @@
 
 **v0.2 (2021/04/23)**
 
-Added options for number of questions and difficulty.
+User can now choose the number of questions (10, 20, or 50) and difficulty (Easy, Medium, Hard, or All).
+
+App now sends vibrate feedback with a different pattern depending on whether the answer was correct.
 
 <br>
 
