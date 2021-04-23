@@ -3,39 +3,37 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import Questions from "./components/Questions";
 import Options from "./components/Options";
+import { OPTIONS, DEFAULT_OPTIONS } from "./helpers/options";
 
-enum STATES {
+enum EStates {
   OPTIONS,
   QUIZ,
 }
 
 export default function App() {
-  const [status, setStatus] = useState(STATES.OPTIONS);
-  const [options, setOptions] = useState({});
+  const [status, setStatus] = useState(EStates.OPTIONS);
+  const [options, setOptions] = useState(DEFAULT_OPTIONS);
 
   const handleFinish = () => {
     console.log("Quiz finished!");
-    setStatus(STATES.OPTIONS);
+    setStatus(EStates.OPTIONS);
   };
 
-  const startQuiz = () => {
-    setStatus(STATES.QUIZ);
+  const startQuiz = (options: OPTIONS) => {
+    setOptions(options);
+    setStatus(EStates.QUIZ);
   };
 
   // Options UI
-  if (status === STATES.OPTIONS) {
-    return <Options onSetOptions={setOptions} startQuiz={startQuiz} />;
+  if (status === EStates.OPTIONS) {
+    return <Options startQuiz={startQuiz} />;
   }
 
   // Quiz UI
   return (
     <View style={styles.container}>
       <Text>¡Quizà!</Text>
-      <Questions
-        numberOfQuestions={10}
-        onFinish={handleFinish}
-        options={options}
-      />
+      <Questions onFinish={handleFinish} options={options} />
       <StatusBar style="auto" />
     </View>
   );

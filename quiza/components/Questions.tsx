@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Text, Image } from "react-native";
+import { Text, Image, Button } from "react-native";
 import { decode } from "html-entities";
 import Question from "./Question";
 import VictoryView from "./VictoryView";
+import { OPTIONS } from "../helpers/options";
 
 /* Main questions UI */
 
 // Possible states of the quiz
-enum STATES {
+enum EStates {
   LOADING = "Loading...",
   IN_PROGRESS = "In progress",
   DONE = "Done",
   ERROR = "Error",
 }
 
-const Questions = (props: {
-  numberOfQuestions: number;
-  onFinish: () => void;
-  options;
-}) => {
-  const numberOfQuestions = props.numberOfQuestions;
-  const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple`;
+const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
+  const numberOfQuestions = props.options.amount;
+  // NOTE: Make sure difficulty is always last due to "ALL" option being a space
+  const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple&difficulty=${props.options.difficulty}`;
 
   const [questions, setQuestions] = useState([]);
-  const [status, setStatus] = useState(STATES.LOADING);
+  const [status, setStatus] = useState(EStates.LOADING);
   const [index, setIndex] = useState(0);
   const [points, setPoints] = useState(0);
   const [lastAnswer, setLastAnswer] = useState("");
@@ -41,7 +39,7 @@ const Questions = (props: {
     if (index == numberOfQuestions - 1) {
       console.log("THE END"); // TODO
 
-      setStatus(STATES.DONE);
+      setStatus(EStates.DONE);
     }
     // Else move to next question
     else {
@@ -51,7 +49,7 @@ const Questions = (props: {
 
   const fetchNewQuestions = () => {
     setQuestions([]);
-    setStatus(STATES.LOADING);
+    setStatus(EStates.LOADING);
     setLastAnswer("");
     fetch(url)
       .then((data) => data.json())
@@ -62,11 +60,11 @@ const Questions = (props: {
           console.log(questions?.results[0]);
           setQuestions(questionArr);
 
-          setStatus(STATES.IN_PROGRESS);
+          setStatus(EStates.IN_PROGRESS);
           setIndex(0);
           setPoints(0);
         } else {
-          setStatus(STATES.ERROR);
+          setStatus(EStates.ERROR);
         }
       });
   };
@@ -75,20 +73,29 @@ const Questions = (props: {
     fetchNewQuestions();
   }, [props]);
 
-  if (status === STATES.DONE) {
+  if (status === EStates.DONE) {
     return (
       <>
         <Text>{lastAnswer}</Text>
         <VictoryView
           points={points}
-          max={props.numberOfQuestions}
+          max={numberOfQuestions}
           restart={props.onFinish}
         ></VictoryView>
       </>
     );
   }
-  if (status === STATES.LOADING || status === STATES.ERROR) {
+  if (status === EStates.LOADING) {
     return <Text>{status}</Text>;
+  }
+
+  if (status == EStates.ERROR) {
+    return (
+      <>
+        <Text>{status}</Text>
+        <Button onPress={props.onFinish} title="Try Again" />
+      </>
+    );
   }
 
   return (
@@ -97,7 +104,7 @@ const Questions = (props: {
       <Text>Question {index + 1}</Text>
       <Question question={questions[index]} onAnswer={handleAnswer} />
       <Text>
-        Points: {points}/{props.numberOfQuestions}
+        Points: {points}/{numberOfQuestions}
       </Text>
     </>
   );
