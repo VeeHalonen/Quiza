@@ -14,8 +14,17 @@
 
 **Introduction Video**: TBA
 
+<br>
 
 <h2>Changelog</h2>
+
+<br>
+
+**v0.2 (2021/04/23)**
+
+Added options for number of questions and difficulty.
+
+<br>
 
 **v0.1 (2021/04/22): Barebones first release**
 
