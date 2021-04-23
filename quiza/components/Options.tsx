@@ -1,36 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image, Button } from "react-native";
 
-// To convert ASCII characters from the API
-import { decode } from "html-entities";
+/* New quiz options */
 
-const AnswerButtons = (props: {
-  options: string[];
-  correctAnswer: string;
-  onAnswer: (correct: boolean, answer: string) => void;
+const Options = (props: {
+  onSetOptions: (options) => void;
+  startQuiz: () => void;
 }) => {
-  const answer = (opt: string, index: number) => {
-    console.log(index);
-    if (opt === props.correctAnswer) {
-      props.onAnswer(true, decode(props.correctAnswer));
-    } else {
-      props.onAnswer(false, decode(props.correctAnswer));
-    }
-  };
-
   return (
     <>
-      {props.options.map((opt, index) => {
-        return (
-          <Button
-            onPress={() => answer(opt, index)}
-            title={decode(opt)}
-            key={index}
-          />
-        );
-      })}
+      <Text>Options</Text>
+      <Button onPress={props.startQuiz} title="Start Quiz" />
     </>
   );
 };
 
-export default AnswerButtons;
+export default Options;

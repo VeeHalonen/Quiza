@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image } from "react-native";
-
-/* Main questions UI */
-
-// To convert ASCII characters from the API
 import { decode } from "html-entities";
 import Question from "./Question";
 import VictoryView from "./VictoryView";
 
-const Questions = (props: { numberOfQuestions: number }) => {
+/* Main questions UI */
+
+// Possible states of the quiz
+enum STATES {
+  LOADING = "Loading...",
+  IN_PROGRESS = "In progress",
+  DONE = "Done",
+  ERROR = "Error",
+}
+
+const Questions = (props: {
+  numberOfQuestions: number;
+  onFinish: () => void;
+  options;
+}) => {
   const numberOfQuestions = props.numberOfQuestions;
   const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple`;
 
   const [questions, setQuestions] = useState([]);
-  const [status, setStatus] = useState("Loading...");
+  const [status, setStatus] = useState(STATES.LOADING);
   const [index, setIndex] = useState(0);
   const [points, setPoints] = useState(0);
   const [lastAnswer, setLastAnswer] = useState("");
@@ -31,7 +41,7 @@ const Questions = (props: { numberOfQuestions: number }) => {
     if (index == numberOfQuestions - 1) {
       console.log("THE END"); // TODO
 
-      setStatus("Done");
+      setStatus(STATES.DONE);
     }
     // Else move to next question
     else {
@@ -41,7 +51,8 @@ const Questions = (props: { numberOfQuestions: number }) => {
 
   const fetchNewQuestions = () => {
     setQuestions([]);
-    setStatus("Loading...");
+    setStatus(STATES.LOADING);
+    setLastAnswer("");
     fetch(url)
       .then((data) => data.json())
       .then((questions) => {
@@ -51,43 +62,43 @@ const Questions = (props: { numberOfQuestions: number }) => {
           console.log(questions?.results[0]);
           setQuestions(questionArr);
 
-          setStatus("In Progress");
+          setStatus(STATES.IN_PROGRESS);
           setIndex(0);
           setPoints(0);
         } else {
-          setStatus("Error");
+          setStatus(STATES.ERROR);
         }
       });
   };
 
   useEffect(() => {
     fetchNewQuestions();
-  }, []);
+  }, [props]);
 
-  if (status === "Done") {
+  if (status === STATES.DONE) {
     return (
       <>
         <Text>{lastAnswer}</Text>
         <VictoryView
           points={points}
           max={props.numberOfQuestions}
-          restart={fetchNewQuestions}
+          restart={props.onFinish}
         ></VictoryView>
       </>
     );
   }
-  if (questions.length === 0) {
-    return <Text>Loading...</Text>;
+  if (status === STATES.LOADING || status === STATES.ERROR) {
+    return <Text>{status}</Text>;
   }
 
   return (
     <>
+      <Text>{lastAnswer}</Text>
       <Text>Question {index + 1}</Text>
       <Question question={questions[index]} onAnswer={handleAnswer} />
       <Text>
         Points: {points}/{props.numberOfQuestions}
       </Text>
-      <Text>{lastAnswer}</Text>
     </>
   );
 };

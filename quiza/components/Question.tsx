@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image } from "react-native";
-import Options from "./Options";
+import Options from "./AnswerButtons";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";
@@ -19,7 +19,7 @@ const Question = (props: {
     // Get random index to insert correct answer to
     const incorrectAnswers = [...props.question.incorrect_answers];
     const correctIndex = Math.floor(
-      Math.random() * incorrectAnswers.length + 1
+      Math.random() * (incorrectAnswers.length + 1)
     );
 
     // Include correct answer

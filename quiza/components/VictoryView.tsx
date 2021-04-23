@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image, Button } from "react-native";
-import Options from "./Options";
-
-// To convert ASCII characters from the API
-import { decode } from "html-entities";
 
 const VictoryView = (props: {
   points: number;
