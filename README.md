@@ -38,6 +38,8 @@ After all the questions have been answered, the quiz ends. A recap screen is sho
 
 Simple styling added. First release.
 
+<br>
+
 **v0.2 (2021/04/23)**
 
 User can now choose the number of questions (10, 20, or 50) and difficulty (Easy, Medium, Hard, or All).
