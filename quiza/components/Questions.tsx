@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Text, Image, Button } from "react-native";
+import { Text, Image, Button, View } from "react-native";
 import { decode } from "html-entities";
 import Question from "./Question";
 import VictoryView from "./VictoryView";
 import { OPTIONS } from "../helpers/options";
-import { colors } from "../styles";
+import { styles, colors } from "../styles";
 
 /* Main questions UI */
 
@@ -75,12 +75,14 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
   if (status === EStates.DONE) {
     return (
       <>
-        <Text>{lastAnswer}</Text>
+        <View style={styles.container}>
+          <Text style={{ textAlign: "center" }}>{lastAnswer}</Text>
+        </View>
         <VictoryView
           points={points}
           max={numberOfQuestions}
           restart={props.onFinish}
-        ></VictoryView>
+        />
       </>
     );
   }
@@ -91,24 +93,34 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
   if (status == EStates.ERROR) {
     return (
       <>
-        <Text>{status}</Text>
-        <Button
-          onPress={props.onFinish}
-          title="Try Again"
-          color={colors.secondary}
-        />
+        <View style={styles.container}>
+          <Text style={{ fontSize: 18 }}>{status}</Text>
+        </View>
+        <View style={styles.container}>
+          <Button
+            onPress={props.onFinish}
+            title="Try Again"
+            color={colors.secondary}
+          />
+        </View>
       </>
     );
   }
 
   return (
     <>
-      <Text>{lastAnswer}</Text>
-      <Text>Question {index + 1}</Text>
+      <View style={styles.container}>
+        <Text>{lastAnswer}</Text>
+      </View>
+      <View style={styles.container}>
+        <Text style={styles.subtitle}>Question {index + 1}</Text>
+      </View>
       <Question question={questions[index]} onAnswer={handleAnswer} />
-      <Text>
-        Points: {points}/{numberOfQuestions}
-      </Text>
+      <View style={styles.container}>
+        <Text>
+          Points: {points}/{numberOfQuestions}
+        </Text>
+      </View>
     </>
   );
 };

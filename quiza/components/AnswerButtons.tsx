@@ -25,12 +25,6 @@ const AnswerButtons = (props: {
     <View style={{ width: "100%" }}>
       {props.options.map((opt, index) => {
         return (
-          // <Button
-          //   onPress={() => answer(opt, index)}
-          //   title={decode(opt)}
-          //   key={index}
-          //   color={colors.secondary}
-          // />
           <TouchableOpacity
             style={styles.button}
             key={index}

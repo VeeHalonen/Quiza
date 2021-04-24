@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Text, Image } from "react-native";
+import { Text, Image, View } from "react-native";
 import AnswerButtons from "./AnswerButtons";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";
+import { styles } from "../styles";
 
 const Question = (props: {
   question;
@@ -34,7 +35,11 @@ const Question = (props: {
 
   return (
     <>
-      <Text>{decode(props.question.question)}</Text>
+      <View style={styles.container}>
+        <Text style={{ textAlign: "center" }}>
+          {decode(props.question.question)}
+        </Text>
+      </View>
       <AnswerButtons
         options={allAnswers}
         correctAnswer={props.question.correct_answer}

@@ -6,22 +6,17 @@ export const colorsBlue = {
   background: "#dce5f5",
 };
 
-export const colorsRed = {
+export const colors = {
   main: "#4f0804",
   secondary: "#628395",
   background: "#F7F3E3",
 };
 
-export const colors = {
-  main: "#4f0804",
-  secondary: "#628395", // 628395
-  background: "#F7F3E3",
-};
-
 const containerStyle = {
-  flex: 1,
+  // flex: 1,
   alignItems: "center",
   justifyContent: "center",
+  margin: 10,
 };
 
 export const styles = StyleSheet.create({
@@ -39,14 +34,28 @@ export const styles = StyleSheet.create({
     borderColor: "gray",
     borderWidth: 1,
     alignItems: "center",
-    padding: 20,
+    padding: 15,
     margin: 5,
     borderRadius: 10,
     elevation: 1,
   },
   buttonText: {
-    // color: "#fff",
     marginLeft: 5,
     marginRight: 5,
+  },
+  subtitle: {
+    fontWeight: "bold",
+    fontSize: 20,
+    textAlign: "center",
+  },
+  dropdownTitle: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: colors.main,
+  },
+  dropdownContainer: {
+    height: 40,
+    width: "100%",
+    marginBottom: 10,
   },
 });

@@ -6,6 +6,7 @@ import Options from "./components/Options";
 import { OPTIONS, DEFAULT_OPTIONS } from "./helpers/options";
 import { styles, colors } from "./styles";
 import { Header } from "react-native-elements";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 enum EStates {
   OPTIONS,
@@ -26,30 +27,42 @@ export default function App() {
     setStatus(EStates.QUIZ);
   };
 
-  // Options UI
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <Header
-        backgroundColor={colors.main}
-        leftComponent={{}}
-        centerComponent={{ text: "¡Quizà!", style: { color: "#fff" } }}
-        rightComponent={{}}
-        // rightComponent={{ icon: "home", color: "#fff" }}
-      />
-      {/* Options UI */}
-      {status === EStates.OPTIONS && (
-        <View style={styles.topLevelContainer}>
-          <Text>Welcome to ¡Quizà!</Text>
-          <Options startQuiz={startQuiz} />
-        </View>
-      )}
-      {/* Quiz UI */}
-      {status === EStates.QUIZ && (
-        <View style={styles.topLevelContainer}>
-          <Questions onFinish={handleFinish} options={options} />
-          <StatusBar style="auto" />
-        </View>
-      )}
-    </View>
+    <SafeAreaProvider>
+      <View style={{ flex: 1, backgroundColor: colors.background }}>
+        <StatusBar style="light" />
+        {/* App Header */}
+        <Header
+          backgroundColor={colors.main}
+          leftComponent={{}}
+          centerComponent={{
+            text: "¡Quizà!",
+            style: { color: "#fff", fontSize: 15 },
+          }}
+          rightComponent={{}}
+          // rightComponent={{ icon: "home", color: "#fff" }}
+        />
+        {/* Options UI */}
+        {status === EStates.OPTIONS && (
+          <View
+            style={{
+              ...styles.topLevelContainer,
+              height: "80%",
+            }}
+          >
+            {/* <View style={styles.container}>
+            <Text>Welcome to ¡Quizà!</Text>
+          </View> */}
+            <Options startQuiz={startQuiz} />
+          </View>
+        )}
+        {/* Quiz UI */}
+        {status === EStates.QUIZ && (
+          <View style={styles.topLevelContainer}>
+            <Questions onFinish={handleFinish} options={options} />
+          </View>
+        )}
+      </View>
+    </SafeAreaProvider>
   );
 }
