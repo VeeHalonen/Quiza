@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Text, Image, Button, Vibration } from "react-native";
+import { View, Text, Button, Vibration, TouchableOpacity } from "react-native";
+import { styles, colors } from "../styles";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";
@@ -21,17 +22,25 @@ const AnswerButtons = (props: {
   };
 
   return (
-    <>
+    <View style={{ width: "100%" }}>
       {props.options.map((opt, index) => {
         return (
-          <Button
-            onPress={() => answer(opt, index)}
-            title={decode(opt)}
+          // <Button
+          //   onPress={() => answer(opt, index)}
+          //   title={decode(opt)}
+          //   key={index}
+          //   color={colors.secondary}
+          // />
+          <TouchableOpacity
+            style={styles.button}
             key={index}
-          />
+            onPress={() => answer(opt, index)}
+          >
+            <Text style={styles.buttonText}>{decode(opt)}</Text>
+          </TouchableOpacity>
         );
       })}
-    </>
+    </View>
   );
 };
 

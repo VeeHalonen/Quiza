@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image } from "react-native";
-import Options from "./AnswerButtons";
+import AnswerButtons from "./AnswerButtons";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";
@@ -35,7 +35,7 @@ const Question = (props: {
   return (
     <>
       <Text>{decode(props.question.question)}</Text>
-      <Options
+      <AnswerButtons
         options={allAnswers}
         correctAnswer={props.question.correct_answer}
         onAnswer={props.onAnswer}

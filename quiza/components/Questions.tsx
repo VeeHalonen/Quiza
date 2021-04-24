@@ -4,6 +4,7 @@ import { decode } from "html-entities";
 import Question from "./Question";
 import VictoryView from "./VictoryView";
 import { OPTIONS } from "../helpers/options";
+import { colors } from "../styles";
 
 /* Main questions UI */
 
@@ -37,8 +38,6 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
     }
     // If last question - end game
     if (index == numberOfQuestions - 1) {
-      console.log("THE END"); // TODO
-
       setStatus(EStates.DONE);
     }
     // Else move to next question
@@ -93,7 +92,11 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
     return (
       <>
         <Text>{status}</Text>
-        <Button onPress={props.onFinish} title="Try Again" />
+        <Button
+          onPress={props.onFinish}
+          title="Try Again"
+          color={colors.secondary}
+        />
       </>
     );
   }

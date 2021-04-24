@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image, Button } from "react-native";
+import { colors, styles } from "../styles";
 
 const VictoryView = (props: {
   points: number;
@@ -13,7 +14,11 @@ const VictoryView = (props: {
       <Text>
         {props.points}/{props.max}
       </Text>
-      <Button onPress={props.restart} title="New Quiz" />
+      <Button
+        onPress={props.restart}
+        title="New Quiz"
+        color={colors.secondary}
+      />
     </>
   );
 };

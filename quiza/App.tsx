@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Questions from "./components/Questions";
 import Options from "./components/Options";
-import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "./helpers/options";
-import DropDownPicker from "react-native-dropdown-picker";
+import { OPTIONS, DEFAULT_OPTIONS } from "./helpers/options";
+import { styles, colors } from "./styles";
+import { Header } from "react-native-elements";
 
 enum EStates {
   OPTIONS,
@@ -26,29 +27,29 @@ export default function App() {
   };
 
   // Options UI
-  if (status === EStates.OPTIONS) {
-    return (
-      <View style={styles.container}>
-        <Options startQuiz={startQuiz} />
-      </View>
-    );
-  }
-
-  // Quiz UI
   return (
-    <View style={styles.container}>
-      <Text>¡Quizà!</Text>
-      <Questions onFinish={handleFinish} options={options} />
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, backgroundColor: colors.background }}>
+      <Header
+        backgroundColor={colors.main}
+        leftComponent={{}}
+        centerComponent={{ text: "¡Quizà!", style: { color: "#fff" } }}
+        rightComponent={{}}
+        // rightComponent={{ icon: "home", color: "#fff" }}
+      />
+      {/* Options UI */}
+      {status === EStates.OPTIONS && (
+        <View style={styles.topLevelContainer}>
+          <Text>Welcome to ¡Quizà!</Text>
+          <Options startQuiz={startQuiz} />
+        </View>
+      )}
+      {/* Quiz UI */}
+      {status === EStates.QUIZ && (
+        <View style={styles.topLevelContainer}>
+          <Questions onFinish={handleFinish} options={options} />
+          <StatusBar style="auto" />
+        </View>
+      )}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

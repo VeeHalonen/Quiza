@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "../helpers/options";
 import DropDownPicker from "react-native-dropdown-picker";
+import { colors } from "../styles";
 
 /* New quiz options */
 
@@ -75,6 +76,7 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
         <Button
           onPress={() => props.startQuiz({ amount, difficulty })}
           title="Start Quiz"
+          color={colors.secondary}
         />
       </View>
     </>
