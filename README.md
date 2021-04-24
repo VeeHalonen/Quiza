@@ -46,7 +46,7 @@ App now sends vibrate feedback with a different pattern depending on whether the
 
 <br>
 
-**v0.1 (2021/04/22): Barebones first release**
+**v0.1 (2021/04/22): Barebones first version**
 
 User is given 10 questions with multiple choice options to choose from.
 
