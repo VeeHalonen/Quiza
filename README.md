@@ -18,7 +18,7 @@
 
 <h2>Releases</h2>
 
-**[Release 1 (2021-04-25)](https://github.com/VeeHalonen/Quiza/tree/95ec72dd848982ce4a99b8c62753f29016d64d46): Features**
+**[Release 1 (2021-04-25)](https://github.com/VeeHalonen/Quiza/tree/a98aa8d7e880f290515be996b317136ca1fc02d7): Features**
 
 The apps opens to the "New Quiz with Options" screen.
 
