@@ -6,7 +6,7 @@
 
 **Possible Features**: Single-player and two-player modes. Different categories. Separate timer mode. Sound effects. Avatar creation via camera and/or phone's file system.
 
-**Target**: Android (possibly also iOS but unable to test)
+**Target**: Android
 
 **Language**: React Native
 
