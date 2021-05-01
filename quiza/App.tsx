@@ -3,28 +3,23 @@ import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
 import Questions from "./components/Questions";
 import Options from "./components/Options";
-import { OPTIONS, DEFAULT_OPTIONS } from "./helpers/options";
+import { OPTIONS, DEFAULT_OPTIONS, EAppStates } from "./helpers/helpers";
 import { styles, colors } from "./styles";
 import { Header } from "react-native-elements";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-enum EStates {
-  OPTIONS,
-  QUIZ,
-}
-
 export default function App() {
-  const [status, setStatus] = useState(EStates.OPTIONS);
+  const [status, setStatus] = useState(EAppStates.OPTIONS);
   const [options, setOptions] = useState(DEFAULT_OPTIONS);
 
   const handleFinish = () => {
     console.log("Quiz finished!");
-    setStatus(EStates.OPTIONS);
+    setStatus(EAppStates.OPTIONS);
   };
 
   const startQuiz = (options: OPTIONS) => {
     setOptions(options);
-    setStatus(EStates.QUIZ);
+    setStatus(EAppStates.QUIZ);
   };
 
   return (
@@ -43,7 +38,7 @@ export default function App() {
           // rightComponent={{ icon: "home", color: "#fff" }}
         />
         {/* Options UI */}
-        {status === EStates.OPTIONS && (
+        {status === EAppStates.OPTIONS && (
           <View
             style={{
               ...styles.topLevelContainer,
@@ -57,7 +52,7 @@ export default function App() {
           </View>
         )}
         {/* Quiz UI */}
-        {status === EStates.QUIZ && (
+        {status === EAppStates.QUIZ && (
           <View style={styles.topLevelContainer}>
             <Questions onFinish={handleFinish} options={options} />
           </View>

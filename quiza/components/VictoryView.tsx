@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
-import {
-  Text,
-  Image,
-  Button,
-  View,
-  ImageBackgroundComponent,
-} from "react-native";
+import React from "react";
+import { Text, Button, View } from "react-native";
 import { colors, styles } from "../styles";
+import PointsTotal from "./PointsTotal";
+
+/* The screen shown at the end of the quiz */
+
+/* Props
+    points: number of points gained
+    max: maximum possible points
+    restart: function to start a new quiz
+*/
 
 const VictoryView = (props: {
   points: number;
@@ -18,38 +21,11 @@ const VictoryView = (props: {
       <View style={{ ...styles.container, flex: 1 }}>
         <Text style={styles.subtitle}>Quiz over!</Text>
       </View>
-      <View
-        style={{
-          ...styles.container,
-          flex: 1,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "white",
-            borderColor: colors.main,
-            borderWidth: 4,
-            alignItems: "center",
-            justifyContent: "center",
-            // padding: 15,
-            // margin: 5,
-            height: 110,
-            width: 110,
-            padding: 10,
-            borderRadius: 100,
-          }}
-        >
-          <Text
-            style={{
-              ...styles.subtitle,
-              color: colors.secondary,
-              fontSize: 30,
-            }}
-          >
-            {props.points}/{props.max}
-          </Text>
-        </View>
+      {/* Total points */}
+      <View style={{ ...styles.container, flex: 1 }}>
+        <PointsTotal points={props.points} max={props.max} />
       </View>
+      {/* Restart button */}
       <View style={{ ...styles.container, flex: 6 }}>
         <Button
           onPress={props.restart}

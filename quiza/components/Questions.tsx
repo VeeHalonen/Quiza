@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image, Button, View } from "react-native";
-import { decode } from "html-entities";
 import Question from "./Question";
 import VictoryView from "./VictoryView";
-import { OPTIONS } from "../helpers/options";
+import { OPTIONS, EQuizStates } from "../helpers/helpers";
 import { styles, colors } from "../styles";
 
-/* Main questions UI */
+/* Main questions UI for the quiz */
 
-// Possible states of the quiz
-enum EStates {
-  LOADING = "Loading...",
-  IN_PROGRESS = "In progress",
-  DONE = "Done",
-  ERROR = "Error",
-}
+/* Props:
+    onFinish: function to handle the quiz ending
+    options: quiz options
+ */
 
 const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
   const numberOfQuestions = props.options.amount;
@@ -22,7 +18,7 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
   const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&type=multiple&difficulty=${props.options.difficulty}`;
 
   const [questions, setQuestions] = useState([]);
-  const [status, setStatus] = useState(EStates.LOADING);
+  const [status, setStatus] = useState(EQuizStates.LOADING);
   const [index, setIndex] = useState(0);
   const [points, setPoints] = useState(0);
   const [lastAnswer, setLastAnswer] = useState("");
@@ -38,7 +34,7 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
     }
     // If last question - end game
     if (index == numberOfQuestions - 1) {
-      setStatus(EStates.DONE);
+      setStatus(EQuizStates.DONE);
     }
     // Else move to next question
     else {
@@ -48,7 +44,7 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
 
   const fetchNewQuestions = () => {
     setQuestions([]);
-    setStatus(EStates.LOADING);
+    setStatus(EQuizStates.LOADING);
     setLastAnswer("");
     fetch(url)
       .then((data) => data.json())
@@ -59,11 +55,11 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
           console.log(questions?.results[0]);
           setQuestions(questionArr);
 
-          setStatus(EStates.IN_PROGRESS);
+          setStatus(EQuizStates.IN_PROGRESS);
           setIndex(0);
           setPoints(0);
         } else {
-          setStatus(EStates.ERROR);
+          setStatus(EQuizStates.ERROR);
         }
       });
   };
@@ -72,7 +68,7 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
     fetchNewQuestions();
   }, [props]);
 
-  if (status === EStates.DONE) {
+  if (status === EQuizStates.DONE) {
     return (
       <>
         <View style={styles.container}>
@@ -86,11 +82,11 @@ const Questions = (props: { onFinish: () => void; options: OPTIONS }) => {
       </>
     );
   }
-  if (status === EStates.LOADING) {
+  if (status === EQuizStates.LOADING) {
     return <Text>{status}</Text>;
   }
 
-  if (status == EStates.ERROR) {
+  if (status == EQuizStates.ERROR) {
     return (
       <>
         <View style={styles.container}>

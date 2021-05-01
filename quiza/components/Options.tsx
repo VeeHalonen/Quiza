@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
-import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "../helpers/options";
+import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "../helpers/helpers";
 import DropDownPicker from "react-native-dropdown-picker";
 import { colors, styles } from "../styles";
 
 /* New quiz options */
+
+/* Props: 
+    startQuiz: function for starting the quiz with the selected options 
+ */
 
 const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
   const [amount, setAmount] = useState(DEFAULT_OPTIONS.amount);

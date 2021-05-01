@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Text, Image, View } from "react-native";
 import AnswerButtons from "./AnswerButtons";
+import { styles } from "../styles";
+import { QUESTION } from "../helpers/helpers";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";
-import { styles } from "../styles";
+
+/* Renders a single question */
+
+/* Props:
+    question: quiz question including its answer options
+    onAnswer: function to handle the user answer
+    - parameters:
+        correct: boolean - was the user's answer correct?
+        correctAnswer: the correct answer as a string
+ */
 
 const Question = (props: {
-  question;
+  question: QUESTION;
   onAnswer: (correct: boolean, answer: string) => void;
 }) => {
   if (props.question === undefined) {
