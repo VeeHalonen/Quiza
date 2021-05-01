@@ -12,11 +12,31 @@ export const colors = {
   background: "#F7F3E3",
 };
 
+// TypeScript refused to accept it from the StyleSheet
+export const avatarStyle = {
+  width: 100,
+  height: 100,
+  borderWidth: 6,
+  borderColor: colors.main,
+  // borderRadius: 50,
+};
+
 const containerStyle = {
   // flex: 1,
   alignItems: "center",
   justifyContent: "center",
   margin: 10,
+};
+
+const buttonStyle = {
+  backgroundColor: "white",
+  borderColor: "gray",
+  borderWidth: 1,
+  alignItems: "center",
+  padding: 15,
+  margin: 5,
+  borderRadius: 10,
+  elevation: 1,
 };
 
 export const styles = StyleSheet.create({
@@ -29,15 +49,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
   },
-  button: {
-    backgroundColor: "white",
-    borderColor: "gray",
-    borderWidth: 1,
-    alignItems: "center",
-    padding: 15,
-    margin: 5,
-    borderRadius: 10,
-    elevation: 1,
+  button: buttonStyle,
+  buttonDisabled: {
+    ...buttonStyle,
+    backgroundColor: "#d9d9d9",
+    opacity: 0.5,
   },
   buttonText: {
     marginLeft: 5,

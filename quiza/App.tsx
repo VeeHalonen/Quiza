@@ -7,6 +7,7 @@ import { OPTIONS, DEFAULT_OPTIONS, EAppStates } from "./helpers/helpers";
 import { styles, colors } from "./styles";
 import { Header } from "react-native-elements";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import VictoryPortrait from "./components/CameraView";
 
 export default function App() {
   const [status, setStatus] = useState(EAppStates.OPTIONS);
@@ -21,6 +22,15 @@ export default function App() {
     setOptions(options);
     setStatus(EAppStates.QUIZ);
   };
+
+  // TODO: delete (for testing camera)
+  // return (
+  //   <SafeAreaProvider>
+  //     <View style={{ flex: 1, backgroundColor: colors.background }}>
+  //       <VictoryPortrait acceptPicture={null} />
+  //     </View>
+  //   </SafeAreaProvider>
+  // );
 
   return (
     <SafeAreaProvider>
@@ -45,9 +55,6 @@ export default function App() {
               height: "80%",
             }}
           >
-            {/* <View style={styles.container}>
-            <Text>Welcome to ¡Quizà!</Text>
-          </View> */}
             <Options startQuiz={startQuiz} />
           </View>
         )}
