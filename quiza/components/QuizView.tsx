@@ -118,9 +118,11 @@ const QuizView = (props: { onFinish: () => void; options: OPTIONS }) => {
     );
   }
 
+  // Versus mode quiz
   if (vsMode) {
     return <Questions2P onFinish={finishQuiz2P} questions={questions} />;
   }
+  // Normal mode quiz
   return <Questions onFinish={finishQuiz} questions={questions} />;
 };
 

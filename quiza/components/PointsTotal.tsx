@@ -7,21 +7,30 @@ import { colors, styles } from "../styles";
 /* Props
     points: number of points gained
     max: maximum possible points
+    size: height and width of the component (optional)
+    borderWidth: thickness of the border (optional)
 */
 
-const PointsTotal = (props: { points: number; max: number }) => {
+const PointsTotal = (props: {
+  points: number;
+  max: number;
+  size?: number;
+  borderWidth?: number;
+}) => {
+  const borderWidth = props.borderWidth || 6;
+  const size = props.size || 110;
   return (
     <View
       style={{
         backgroundColor: "white",
         borderColor: colors.main,
-        borderWidth: 4,
+        borderWidth: borderWidth,
         alignItems: "center",
         justifyContent: "center",
         // padding: 15,
         // margin: 5,
-        height: 110,
-        width: 110,
+        height: size,
+        width: size,
         padding: 10,
         borderRadius: 100,
       }}

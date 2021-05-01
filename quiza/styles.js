@@ -48,6 +48,11 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
+  subtitle2: {
+    fontWeight: "bold",
+    fontSize: 18,
+    textAlign: "center",
+  },
   dropdownTitle: {
     fontWeight: "bold",
     fontSize: 16,
