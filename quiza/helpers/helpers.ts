@@ -42,6 +42,7 @@ export enum EAppStates {
 export enum EQuizStates {
   LOADING = "Loading...",
   IN_PROGRESS = "In progress",
+  TEAM_SETUP = "Team setup",
   DONE = "Done",
   ERROR = "Error",
 }

@@ -57,5 +57,6 @@ export const styles = StyleSheet.create({
     height: 40,
     width: "95%",
     marginBottom: 10,
+    alignSelf: "center",
   },
 });
