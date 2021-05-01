@@ -8,7 +8,7 @@ import {
 } from "../helpers/helpers";
 import DropDownPicker from "react-native-dropdown-picker";
 import { colors, styles } from "../styles";
-import CheckBox from "@react-native-community/checkbox";
+import Checkbox from "expo-checkbox";
 
 /* New quiz options */
 
@@ -115,12 +115,12 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
       {/* Avatar mode checkbox */}
       {mode === EQuizMode.VERSUS && (
         <View style={styles.checkBoxContainer}>
-          <CheckBox
+          <Checkbox
             value={toggleCheckBox}
-            onValueChange={(newValue) => setToggleCheckBox(newValue)}
-            tintColors={{ true: colors.secondary }}
+            onValueChange={setToggleCheckBox}
+            color={toggleCheckBox ? colors.secondary : "gray"}
           />
-          <Text>Avatars</Text>
+          <Text style={{ margin: 5 }}>Avatars</Text>
         </View>
       )}
       {/* START BUTTON */}
