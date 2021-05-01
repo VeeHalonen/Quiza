@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
-import Questions from "./components/Questions";
+import QuizView from "./components/QuizView";
 import Options from "./components/Options";
 import { OPTIONS, DEFAULT_OPTIONS, EAppStates } from "./helpers/helpers";
 import { styles, colors } from "./styles";
@@ -54,7 +54,7 @@ export default function App() {
         {/* Quiz UI */}
         {status === EAppStates.QUIZ && (
           <View style={styles.topLevelContainer}>
-            <Questions onFinish={handleFinish} options={options} />
+            <QuizView onFinish={handleFinish} options={options} />
           </View>
         )}
       </View>

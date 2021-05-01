@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
-import { OPTIONS, DEFAULT_OPTIONS, EDifficulty } from "../helpers/helpers";
+import {
+  OPTIONS,
+  DEFAULT_OPTIONS,
+  EDifficulty,
+  EQuizMode,
+} from "../helpers/helpers";
 import DropDownPicker from "react-native-dropdown-picker";
 import { colors, styles } from "../styles";
 
@@ -13,6 +18,7 @@ import { colors, styles } from "../styles";
 const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
   const [amount, setAmount] = useState(DEFAULT_OPTIONS.amount);
   const [difficulty, setDifficulty] = useState(DEFAULT_OPTIONS.difficulty);
+  const [mode, setMode] = useState(DEFAULT_OPTIONS.mode);
 
   return (
     <>
@@ -80,6 +86,30 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
         }}
         onChangeItem={(item) => setDifficulty(item.value)}
       />
+      {/* MODE PICKER */}
+      <View style={styles.container}>
+        <Text style={styles.dropdownTitle}>Mode</Text>
+      </View>
+      <DropDownPicker
+        zIndex={3000}
+        zIndexInverse={5000}
+        items={[
+          {
+            label: EQuizMode.SINGLE_PLAYER,
+            value: EQuizMode.SINGLE_PLAYER,
+          },
+          {
+            label: EQuizMode.VERSUS,
+            value: EQuizMode.VERSUS,
+          },
+        ]}
+        defaultValue={DEFAULT_OPTIONS.mode}
+        containerStyle={styles.dropdownContainer}
+        itemStyle={{
+          justifyContent: "flex-start",
+        }}
+        onChangeItem={(item) => setMode(item.value)}
+      />
       {/* START BUTTON */}
       {/* The zIndex is to prevent it from rendering on top of the dropdowns */}
       <View
@@ -91,7 +121,7 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
         }}
       >
         <Button
-          onPress={() => props.startQuiz({ amount, difficulty })}
+          onPress={() => props.startQuiz({ amount, difficulty, mode })}
           title="Start Quiz"
           color={colors.secondary}
         />

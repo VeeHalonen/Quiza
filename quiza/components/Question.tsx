@@ -35,12 +35,14 @@ const Question = (props: {
     );
 
     // Include correct answer
-    console.log(incorrectAnswers);
+    // console.log(incorrectAnswers);
     var cloneArray = incorrectAnswers.slice();
     cloneArray.splice(correctIndex, 0, props.question.correct_answer);
     setAllAnswers(cloneArray);
 
-    console.log(cloneArray);
+    // console.log(cloneArray);
+
+    console.log(props.question);
     console.log("Correct answer: " + props.question.correct_answer);
   }, [props]);
 

@@ -1,9 +1,3 @@
-// Options for a new quiz
-export type OPTIONS = {
-  amount: number;
-  difficulty: string;
-};
-
 // Quiz difficulty
 export enum EDifficulty {
   ALL = " ",
@@ -12,10 +6,24 @@ export enum EDifficulty {
   HARD = "hard",
 }
 
+// Quiz mode
+export enum EQuizMode {
+  SINGLE_PLAYER = "Single-player",
+  VERSUS = "Team VS Team",
+}
+
+// Options for a new quiz
+export type OPTIONS = {
+  amount: number;
+  difficulty: EDifficulty;
+  mode: EQuizMode;
+};
+
 // Default options for a new quiz
 export const DEFAULT_OPTIONS: OPTIONS = {
   amount: 10,
   difficulty: EDifficulty.ALL,
+  mode: EQuizMode.SINGLE_PLAYER,
 };
 
 // The format for single quiz question and answers
