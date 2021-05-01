@@ -8,6 +8,7 @@ import {
 } from "../helpers/helpers";
 import DropDownPicker from "react-native-dropdown-picker";
 import { colors, styles } from "../styles";
+import CheckBox from "@react-native-community/checkbox";
 
 /* New quiz options */
 
@@ -19,6 +20,7 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
   const [amount, setAmount] = useState(DEFAULT_OPTIONS.amount);
   const [difficulty, setDifficulty] = useState(DEFAULT_OPTIONS.difficulty);
   const [mode, setMode] = useState(DEFAULT_OPTIONS.mode);
+  const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   return (
     <>
@@ -110,6 +112,17 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
         }}
         onChangeItem={(item) => setMode(item.value)}
       />
+      {/* Avatar mode checkbox */}
+      {mode === EQuizMode.VERSUS && (
+        <View style={styles.checkBoxContainer}>
+          <CheckBox
+            value={toggleCheckBox}
+            onValueChange={(newValue) => setToggleCheckBox(newValue)}
+            tintColors={{ true: colors.secondary }}
+          />
+          <Text>Avatars</Text>
+        </View>
+      )}
       {/* START BUTTON */}
       {/* The zIndex is to prevent it from rendering on top of the dropdowns */}
       <View

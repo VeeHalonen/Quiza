@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.7",
     "expo": "~41.0.1",
     "expo-camera": "~11.0.2",
     "expo-image-picker": "~10.1.4",

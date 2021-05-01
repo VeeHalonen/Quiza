@@ -80,4 +80,10 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     alignSelf: "center",
   },
+  checkBoxContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 10,
+  },
 });
