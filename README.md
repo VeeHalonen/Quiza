@@ -30,13 +30,37 @@ After all the questions have been answered, the quiz ends. A recap screen is sho
 
 <br>
 
+**[Release 2 (2021-05-02)](https://github.com/VeeHalonen/Quiza/tree/034bbe61d8ccaf090d9955c0872f802be38f06ce): Features**
+
+Fixed a bug where the dropdown menus on the options screen were sometimes not responsive.
+
+Team VS Team mode added to the new quiz options. This mode splits the questions between Team 1 and Team 2 and alternates between asking each team. After all the questions have been answered, the program announces the winner and the final points of each team.
+
+An additional avatar mode option is available for Team VS Team mode. This option becomes visible when Team VS Team mode is chosen from the quiz mode dropdown. When the quiz is started in avatar mode, the app first attempts to launch the device camera. If the camera permission is not granted, the quiz launches without avatar mode. If the camera permission is granted, the app launches a camera view prompting the user to take a picture of Team 1. The top button toggles between the front and rear cameras, and the bottom button takes the picture. After a picture is taken, the app loads it to a confirmation screen where it is cropped to fit the square avatar. The user can then either return to the camera to retake the picture or accept it and move on. When Team 1 accepts their avatar, the process is repeated for Team 2. After both teams have taken their pictures, the quiz launches. In avatar mode, the quiz shows the portrait of the team currently answering, and at the end of the quiz, the winner's portrait is shown on the victory screen.
+
+<br>
+
+<h2>Known Issues</h2>
+
+The app has not been sufficiently tested on different screen sizes. Certain components require absolute pixel values, which will likely cause issues with devices of different sizes. The camera aspect ratio is also set to 16:9, which will likely cause distortion on other devices.
+
+Pictures taken with the camera take a long time to be processed, and the screen may not give sufficient feedback to the user on what is happening. The "Take pic" button does become unresponsive and informs the user that the picture is loading, but the camera view remains active.
+
+The pictures are stored within the app cache, but the cache is not automatically cleared when the files become unnecessary. This could lead to storage issues as the number of pictures taken increases.
+
+When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
+
+<br>
+
 <h2>Changelog</h2>
 
 <br>
 
 **v2.0 (2021/05/02)**
 
-[Documentation pending...]
+Team VS Team mode added as an alternative to the default single-player mode.
+
+As an additional option for Team VS Team mode, avatar pictures can be taken for each team using the phone camera.
 
 <br>
 
