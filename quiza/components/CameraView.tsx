@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Text, View, TouchableOpacity, Dimensions } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+  ToastAndroid,
+} from "react-native";
 import { Camera } from "expo-camera";
 import { styles, colors } from "../styles";
 import ImagePreview from "./ImagePreview";
@@ -48,7 +54,9 @@ const CameraView = (props: {
   if (hasPermission === null) {
     return <View />;
   }
+  // No permission
   if (hasPermission === false) {
+    ToastAndroid.show("No Camera Permission", ToastAndroid.SHORT);
     props.acceptPicture(null);
   }
 
