@@ -34,6 +34,18 @@ After all the questions have been answered, the quiz ends. A recap screen is sho
 
 <br>
 
+**v2.0 (2021/05/02)**
+
+[Documentation pending...]
+
+<br>
+
+**v1.1 (2021/05/01)**
+
+Dropdowns should be fully interactive again.
+
+<br>
+
 **v1.0 (2021/04/24)**
 
 Simple styling added. First release.
