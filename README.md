@@ -30,7 +30,7 @@ After all the questions have been answered, the quiz ends. A recap screen is sho
 
 <br>
 
-**[Release 2 (2021-05-02)](https://github.com/VeeHalonen/Quiza/tree/034bbe61d8ccaf090d9955c0872f802be38f06ce): Features**
+**[Release 2 (2021-05-02)](https://github.com/VeeHalonen/Quiza/tree/482d16d9d972da6ea72347449d85fe803c1a28f9): Features**
 
 Fixed a bug where the dropdown menus on the options screen were sometimes not responsive.
 
@@ -49,6 +49,21 @@ Pictures taken with the camera take a long time to be processed, and the screen 
 The pictures are stored within the app cache, but the cache is not automatically cleared when the files become unnecessary. This could lead to storage issues as the number of pictures taken increases.
 
 When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
+
+<br>
+
+<h2>Future Possibilities</h2>
+
+- Support for landscape mode
+- Navigation options to interrupt the quiz or cancel avatar creation
+- Question categories as an option
+- Timer mode with limited answer time
+- Sound effects
+- Instant death tiebreaker
+- Persisting team profiles (names, avatars, points across multiple quizzes)
+- "Pub quiz" mode with multiple teams
+- Online multiplayer
+- Prevent duplicate questions during the same session with a Session Token
 
 <br>
 
