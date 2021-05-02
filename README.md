@@ -4,7 +4,7 @@
 
 **API**: https://opentdb.com/api_config.php
 
-**Possible Features**: Single-player and two-player modes. Different categories. Separate timer mode. Sound effects. Avatar creation via camera and/or phone's file system.
+**Features**: Single-player and Team VS Team modes. Difficulty and number of questions can be chosen. Vibrate feedback on answer. Team avatar creation via phone camera.
 
 **Target**: Android
 
