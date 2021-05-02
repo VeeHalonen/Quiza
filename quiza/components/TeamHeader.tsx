@@ -22,7 +22,7 @@ const TeamHeader = (props: { teamNumber: number; textAfter?: string }) => {
         width: "100%",
       }}
     >
-      Team {props.teamNumber} Avatar
+      Team {props.teamNumber} {props.textAfter}
     </Text>
   );
 };
