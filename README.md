@@ -71,7 +71,13 @@ When taking the pictures, the camera does not show the user the actual dimension
 
 <br>
 
-**v2.0 (2021/05/02)**
+**v2.1 (2021/05/02)**
+
+Custom icons and splash image added.
+
+<br>
+
+**v2.0 (2021/05/02): Published to Google Play**
 
 Team VS Team mode added as an alternative to the default single-player mode.
 
