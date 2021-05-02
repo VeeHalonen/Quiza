@@ -20,7 +20,7 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
   const [amount, setAmount] = useState(DEFAULT_OPTIONS.amount);
   const [difficulty, setDifficulty] = useState(DEFAULT_OPTIONS.difficulty);
   const [mode, setMode] = useState(DEFAULT_OPTIONS.mode);
-  const [toggleCheckBox, setToggleCheckBox] = useState(false);
+  const [avatars, setAvatars] = useState(false);
 
   return (
     <>
@@ -116,9 +116,9 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
       {mode === EQuizMode.VERSUS && (
         <View style={styles.checkBoxContainer}>
           <Checkbox
-            value={toggleCheckBox}
-            onValueChange={setToggleCheckBox}
-            color={toggleCheckBox ? colors.secondary : "gray"}
+            value={avatars}
+            onValueChange={setAvatars}
+            color={avatars ? colors.secondary : "gray"}
           />
           <Text style={{ margin: 5 }}>Avatars</Text>
         </View>
@@ -134,7 +134,7 @@ const Options = (props: { startQuiz: (options: OPTIONS) => void }) => {
         }}
       >
         <Button
-          onPress={() => props.startQuiz({ amount, difficulty, mode })}
+          onPress={() => props.startQuiz({ amount, difficulty, mode, avatars })}
           title="Start Quiz"
           color={colors.secondary}
         />

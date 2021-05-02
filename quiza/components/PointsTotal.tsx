@@ -9,6 +9,7 @@ import { colors, styles } from "../styles";
     max: maximum possible points
     size: height and width of the component (optional)
     borderWidth: thickness of the border (optional)
+    fontSize: number (optional)
 */
 
 const PointsTotal = (props: {
@@ -16,9 +17,11 @@ const PointsTotal = (props: {
   max: number;
   size?: number;
   borderWidth?: number;
+  fontSize?: number;
 }) => {
   const borderWidth = props.borderWidth || 6;
   const size = props.size || 110;
+  const fontSize = props.fontSize || 30;
   return (
     <View
       style={{
@@ -39,7 +42,7 @@ const PointsTotal = (props: {
         style={{
           ...styles.subtitle,
           color: colors.secondary,
-          fontSize: 30,
+          fontSize: fontSize,
         }}
       >
         {props.points}/{props.max}

@@ -17,6 +17,7 @@ export type OPTIONS = {
   amount: number;
   difficulty: EDifficulty;
   mode: EQuizMode;
+  avatars: boolean;
 };
 
 // Default options for a new quiz
@@ -24,6 +25,7 @@ export const DEFAULT_OPTIONS: OPTIONS = {
   amount: 10,
   difficulty: EDifficulty.ALL,
   mode: EQuizMode.SINGLE_PLAYER,
+  avatars: false,
 };
 
 // The format for single quiz question and answers
@@ -37,6 +39,7 @@ export type QUESTION = {
 export enum EAppStates {
   OPTIONS,
   QUIZ,
+  AVATARS,
 }
 // Possible states of the quiz
 export enum EQuizStates {

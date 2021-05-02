@@ -3,14 +3,19 @@ import { Text, View, TouchableOpacity, Dimensions } from "react-native";
 import { Camera } from "expo-camera";
 import { styles, colors } from "../styles";
 import ImagePreview from "./ImagePreview";
+import TeamHeader from "./TeamHeader";
 
 /* Camera component to take and return a picture */
 
 /* Props:
     acceptPicture: function that sends image for further processing (null if failed)
+    teamNumber: number of the team whose picture we are taking
 */
 
-const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
+const CameraView = (props: {
+  acceptPicture: (image: { uri }) => void;
+  teamNumber: number;
+}) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [capturedImage, setCapturedImage] = useState(null);
@@ -35,7 +40,9 @@ const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
   };
 
   const acceptPicture = () => {
+    setCameraEnabled(true);
     props.acceptPicture(capturedImage);
+    setCapturedImage(null);
   };
 
   if (hasPermission === null) {
@@ -56,7 +63,7 @@ const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
   // Get screen dimensions
   const dimensions = Dimensions.get("window");
   const screenWidth = dimensions.width;
-  const height = Math.round((screenWidth * 16) / 9) - 40;
+  const height = Math.round((screenWidth * 16) / 9) - 130;
   const ratio = 16 / 9;
 
   return (
@@ -70,6 +77,7 @@ const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
             camera = r;
           }}
         >
+          {/* Title */}
           {/* Flip camera button */}
           <View
             style={{
@@ -78,6 +86,7 @@ const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
               width: "100%",
             }}
           >
+            <TeamHeader teamNumber={props.teamNumber} textAfter=" Avatar" />
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
@@ -117,6 +126,7 @@ const CameraView = (props: { acceptPicture: (image: { uri }) => void }) => {
           image={capturedImage}
           onAccept={acceptPicture}
           onReject={retakePicture}
+          teamNumber={props.teamNumber}
         />
       )}
     </View>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 import Question from "./Question";
-import { styles, colors } from "../styles";
+import { styles, colors, avatarStyle1, avatarStyle2 } from "../styles";
+import QuestionHeaderWithAvatar from "./QuestionHeaderWithAvatar";
 
 /* Main questions UI for versus mode */
 
@@ -11,12 +12,16 @@ import { styles, colors } from "../styles";
   - parameters:
     points1: number - Team 1 points
     points2: number - Team 2 points
-    lasAnswer: the correct answer to last question as a string
+    lastAnswer: the correct answer to last question as a string
+  avatar1: avatar uri for Team 1 (null if not set)
+  avatar2: avatar uri for Team 2 (null if not set)
  */
 
 const Questions2P = (props: {
   questions: any[];
   onFinish: (points1: number, points2: number, lastAnswer: string) => void;
+  avatar1: string;
+  avatar2: string;
 }) => {
   const numberOfQuestions = props.questions.length;
   const maxPoints = numberOfQuestions / 2; // questions are shared
@@ -68,15 +73,38 @@ const Questions2P = (props: {
 
   return (
     <>
+      {/* Previous answer */}
       <View style={styles.container}>
         <Text>{lastAnswer}</Text>
       </View>
-      <View style={styles.container}>
-        <Text style={styles.subtitle}>
-          Team {team1Turn ? 1 : 2} Question {Math.ceil((index + 1) / 2)}
-        </Text>
-      </View>
+      {/* Avatars */}
+      {team1Turn && props.avatar1 && (
+        <QuestionHeaderWithAvatar
+          teamNumber={1}
+          avatar={props.avatar1}
+          style={avatarStyle1}
+          questionNumber={Math.ceil((index + 1) / 2)}
+        />
+      )}
+      {!team1Turn && props.avatar2 && (
+        <QuestionHeaderWithAvatar
+          teamNumber={2}
+          avatar={props.avatar2}
+          style={avatarStyle2}
+          questionNumber={Math.ceil((index + 1) / 2)}
+        />
+      )}
+      {/* Title */}
+      {!props.avatar1 && (
+        <View style={styles.container}>
+          <Text style={styles.subtitle}>
+            Team {team1Turn ? 1 : 2} Question {Math.ceil((index + 1) / 2)}
+          </Text>
+        </View>
+      )}
+      {/* Question */}
       <Question question={props.questions[index]} onAnswer={handleAnswer} />
+      {/* Points */}
       <View style={styles.container}>
         <Text>
           Team 1 Points: {points1}/{maxPoints}

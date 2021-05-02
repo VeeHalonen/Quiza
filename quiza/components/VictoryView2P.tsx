@@ -18,10 +18,12 @@ const VictoryView2P = (props: {
   max: number;
   restart: () => void;
 }) => {
-  const points1Size = props.points1 >= props.points2 ? 100 : 80;
-  const points2Size = props.points2 >= props.points1 ? 100 : 80;
+  const points1Size = props.points1 >= props.points2 ? 110 : 80;
+  const points2Size = props.points2 >= props.points1 ? 110 : 80;
   const points1BorderWidth = props.points1 >= props.points2 ? 6 : 4;
   const points2BorderWidth = props.points2 >= props.points1 ? 6 : 4;
+  const fontSize1 = props.points1 >= props.points2 ? 28 : 20;
+  const fontSize2 = props.points2 >= props.points1 ? 28 : 20;
 
   return (
     <View>
@@ -38,6 +40,7 @@ const VictoryView2P = (props: {
           max={props.max}
           size={points1Size}
           borderWidth={points1BorderWidth}
+          fontSize={fontSize1}
         />
       </View>
       {/* Total points T2 */}
@@ -50,6 +53,7 @@ const VictoryView2P = (props: {
           max={props.max}
           size={points2Size}
           borderWidth={points2BorderWidth}
+          fontSize={fontSize2}
         />
       </View>
       {/* Restart button */}

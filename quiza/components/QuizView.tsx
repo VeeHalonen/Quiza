@@ -6,15 +6,23 @@ import { styles, colors } from "../styles";
 import Questions from "./Questions";
 import Questions2P from "./Questions2P";
 import VictoryView2P from "./VictoryView2P";
+import VictoryView2PAvatars from "./VictoryView2PAvatars";
 
 /* Main quiz UI */
 
 /* Props:
     onFinish: function to handle the quiz ending
     options: quiz options
+    avatar1: avatar uri for Team 1 (null if not set)
+    avatar2: avatar uri for Team 2 (null if not set)
  */
 
-const QuizView = (props: { onFinish: () => void; options: OPTIONS }) => {
+const QuizView = (props: {
+  onFinish: () => void;
+  options: OPTIONS;
+  avatar1: string;
+  avatar2: string;
+}) => {
   const numberOfQuestions = props.options.amount;
   // Is the quiz in versus mode?
   const vsMode = props.options.mode === EQuizMode.VERSUS;
@@ -85,13 +93,24 @@ const QuizView = (props: { onFinish: () => void; options: OPTIONS }) => {
             restart={props.onFinish}
           />
         )}
-        {/* Versus mode victory screen */}
-        {vsMode && (
+        {/* Versus mode without avatars victory screen */}
+        {vsMode && (!props.avatar1 || !props.avatar2) && (
           <VictoryView2P
             points1={points}
             points2={points2}
             max={numberOfQuestions / 2}
             restart={props.onFinish}
+          />
+        )}
+        {/* Versus mode with avatars victory screen */}
+        {vsMode && props.avatar1 && props.avatar2 && (
+          <VictoryView2PAvatars
+            points1={points}
+            points2={points2}
+            max={numberOfQuestions / 2}
+            restart={props.onFinish}
+            avatar1={props.avatar1}
+            avatar2={props.avatar2}
           />
         )}
       </>
@@ -120,7 +139,14 @@ const QuizView = (props: { onFinish: () => void; options: OPTIONS }) => {
 
   // Versus mode quiz
   if (vsMode) {
-    return <Questions2P onFinish={finishQuiz2P} questions={questions} />;
+    return (
+      <Questions2P
+        onFinish={finishQuiz2P}
+        questions={questions}
+        avatar1={props.avatar1}
+        avatar2={props.avatar2}
+      />
+    );
   }
   // Normal mode quiz
   return <Questions onFinish={finishQuiz} questions={questions} />;

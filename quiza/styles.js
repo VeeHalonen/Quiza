@@ -12,13 +12,24 @@ export const colors = {
   background: "#F7F3E3",
 };
 
-// TypeScript refused to accept it from the StyleSheet
-export const avatarStyle = {
-  width: 100,
-  height: 100,
-  borderWidth: 6,
-  borderColor: colors.main,
+// Basic avatar styling (TS refused to accept it from the StyleSheet)
+const avatarStyle = {
+  width: 75,
+  height: 75,
+  borderWidth: 5,
   // borderRadius: 50,
+};
+
+// Colour variation for Team 1
+export const avatarStyle1 = {
+  ...avatarStyle,
+  borderColor: colors.main,
+};
+
+// Colour variation for Team 2
+export const avatarStyle2 = {
+  ...avatarStyle,
+  borderColor: colors.secondary,
 };
 
 const containerStyle = {
@@ -58,6 +69,11 @@ export const styles = StyleSheet.create({
   buttonText: {
     marginLeft: 5,
     marginRight: 5,
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 24,
+    textAlign: "center",
   },
   subtitle: {
     fontWeight: "bold",
