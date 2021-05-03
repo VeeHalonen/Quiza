@@ -42,15 +42,15 @@ An additional avatar mode option is available for Team VS Team mode. This option
 
 <h2>Known Issues</h2>
 
-The app has not been sufficiently tested on different screen sizes. Certain components require absolute pixel values, which will likely cause issues with devices of different sizes. The camera aspect ratio is also set to 16:9, which will likely cause distortion on other devices.
+- The app has not been sufficiently tested on different screen sizes. Absolute pixel values had to be set for certain components, which could cause issues with devices of different sizes. The camera aspect ratio is also statically set to 16:9, which could cause distortion of the image on some devices.
 
-Pictures taken with the camera take a long time to be processed, and the screen may not give sufficient feedback to the user on what is happening. The "Take pic" button does become unresponsive and informs the user that the picture is loading, but the camera view remains active.
+- Pictures taken with the camera take a long time to be processed, and the screen may not give sufficient feedback to the user on what is happening. The "Take pic" button does become unresponsive and informs the user that the picture is loading, but the camera view remains active.
 
-The pictures are stored within the app cache, but the cache is not automatically cleared when the files become unnecessary. This could lead to storage issues as the number of pictures taken increases.
+- The pictures are stored within the app cache, but the cache is not automatically cleared when the files become unnecessary. This could lead to storage issues as the number of pictures taken increases.
 
-When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
+- When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
 
-The app adaptive icon has not been customized.
+- The app adaptive icon has not been customized.
 
 <br>
 
