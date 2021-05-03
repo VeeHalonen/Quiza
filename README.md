@@ -54,7 +54,7 @@ The app adaptive icon has not been customized.
 
 <br>
 
-<h2>Future Possibilities</h2>
+<h2>Possible Future Developments</h2>
 
 - Support for landscape mode
 - Navigation options to interrupt the quiz or cancel avatar creation
@@ -63,9 +63,9 @@ The app adaptive icon has not been customized.
 - Sound effects
 - Instant death tiebreaker
 - Persisting team profiles (names, avatars, points across multiple quizzes)
+- Prevent duplicate questions during the same session with a Session Token
 - "Pub quiz" mode with multiple teams
 - Online multiplayer
-- Prevent duplicate questions during the same session with a Session Token
 
 <br>
 
