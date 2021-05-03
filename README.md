@@ -50,6 +50,8 @@ The pictures are stored within the app cache, but the cache is not automatically
 
 When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
 
+The app adaptive icon has not been customized.
+
 <br>
 
 <h2>Future Possibilities</h2>
@@ -71,7 +73,7 @@ When taking the pictures, the camera does not show the user the actual dimension
 
 <br>
 
-**v2.1 (2021/05/02)**
+**v2.1 (2021/05/03)**
 
 Custom icons and splash image added.
 
