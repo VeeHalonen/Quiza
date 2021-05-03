@@ -73,13 +73,13 @@ The app adaptive icon has not been customized.
 
 <br>
 
-**v2.1 (2021/05/03)**
+**v2.1 (2021/05/03): Google Play v1.1.0**
 
 Custom icons and splash image added.
 
 <br>
 
-**v2.0 (2021/05/02): Published to Google Play**
+**v2.0 (2021/05/02): Google Play v1.0.0**
 
 Team VS Team mode added as an alternative to the default single-player mode.
 
