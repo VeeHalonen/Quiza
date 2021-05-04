@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View, Image } from "react-native";
-import { styles, colors, avatarStyle1, avatarStyle2 } from "../styles";
+import { styles } from "../styles";
 
 /* Renders T[teamNumber] [avatar] Q[questionNumber] */
 

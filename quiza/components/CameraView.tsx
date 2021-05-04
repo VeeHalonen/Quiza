@@ -7,7 +7,7 @@ import {
   ToastAndroid,
 } from "react-native";
 import { Camera } from "expo-camera";
-import { styles, colors } from "../styles";
+import { styles } from "../styles";
 import ImagePreview from "./ImagePreview";
 import TeamHeader from "./TeamHeader";
 

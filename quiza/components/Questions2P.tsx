@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View } from "react-native";
 import Question from "./Question";
-import { styles, colors, avatarStyle1, avatarStyle2 } from "../styles";
+import { styles, avatarStyle1, avatarStyle2 } from "../styles";
 import QuestionHeaderWithAvatar from "./QuestionHeaderWithAvatar";
 
 /* Main questions UI for versus mode */

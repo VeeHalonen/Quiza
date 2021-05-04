@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 import QuizView from "./components/QuizView";
 import Options from "./components/Options";
 import {
@@ -9,10 +9,12 @@ import {
   EAppStates,
   EQuizMode,
 } from "./helpers/helpers";
-import { styles, colors, avatarStyle1 } from "./styles";
+import { styles, colors } from "./styles";
 import { Header } from "react-native-elements";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import CameraView from "./components/CameraView";
+
+/* Main component, keeps track of app state */
 
 export default function App() {
   const [status, setStatus] = useState(EAppStates.OPTIONS);

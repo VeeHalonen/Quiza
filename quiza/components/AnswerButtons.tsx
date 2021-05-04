@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Button, Vibration, TouchableOpacity } from "react-native";
-import { styles, colors } from "../styles";
+import React from "react";
+import { View, Text, Vibration, TouchableOpacity } from "react-native";
+import { styles } from "../styles";
 
 // To convert ASCII characters from the API
 import { decode } from "html-entities";

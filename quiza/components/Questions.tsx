@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import Question from "./Question";
-import { styles, colors } from "../styles";
+import { styles } from "../styles";
 
 /* Main questions UI for the single-player quiz */
 

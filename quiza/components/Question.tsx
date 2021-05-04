@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, Image, View } from "react-native";
+import { Text, View } from "react-native";
 import AnswerButtons from "./AnswerButtons";
 import { styles } from "../styles";
 import { QUESTION } from "../helpers/helpers";
