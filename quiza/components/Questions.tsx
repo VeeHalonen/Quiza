@@ -48,13 +48,16 @@ const Questions = (props: {
 
   return (
     <>
+      {/* Was the previous answer correct? */}
       <View style={styles.container}>
         <Text>{lastAnswer}</Text>
       </View>
+      {/* Question */}
       <View style={styles.container}>
         <Text style={styles.subtitle}>Question {index + 1}</Text>
       </View>
       <Question question={props.questions[index]} onAnswer={handleAnswer} />
+      {/* Points */}
       <View style={styles.container}>
         <Text>
           Points: {points}/{numberOfQuestions}

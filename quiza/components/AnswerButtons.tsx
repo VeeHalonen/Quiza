@@ -23,7 +23,6 @@ const AnswerButtons = (props: {
 }) => {
   // Handle user's answer
   const answer = (opt: string, index: number) => {
-    // console.log(index);
     if (opt === props.correctAnswer) {
       Vibration.vibrate([0, 100, 200, 200]);
       props.onAnswer(true, decode(props.correctAnswer));

@@ -30,8 +30,6 @@ const PointsTotal = (props: {
         borderWidth: borderWidth,
         alignItems: "center",
         justifyContent: "center",
-        // padding: 15,
-        // margin: 5,
         height: size,
         width: size,
         padding: 10,

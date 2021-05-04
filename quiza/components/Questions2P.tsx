@@ -56,7 +56,9 @@ const Questions2P = (props: {
         newPoints2++;
         setPoints2(newPoints2);
       }
-    } else {
+    }
+    // Wrong answer
+    else {
       console.log("Incorrect!");
       setLastAnswer(ans);
     }

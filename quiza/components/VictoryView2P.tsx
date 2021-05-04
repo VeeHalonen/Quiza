@@ -27,6 +27,7 @@ const VictoryView2P = (props: {
 
   return (
     <View>
+      {/* Title */}
       <View style={{ ...styles.container }}>
         <Text style={styles.subtitle}>Quiz over!</Text>
       </View>

@@ -18,6 +18,7 @@ const VictoryView = (props: {
 }) => {
   return (
     <View>
+      {/* Title */}
       <View style={{ ...styles.container, flex: 1 }}>
         <Text style={styles.subtitle}>Quiz over!</Text>
       </View>

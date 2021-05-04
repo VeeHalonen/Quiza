@@ -85,8 +85,6 @@ const CameraView = (props: {
             camera = r;
           }}
         >
-          {/* Title */}
-          {/* Flip camera button */}
           <View
             style={{
               position: "absolute",
@@ -94,7 +92,9 @@ const CameraView = (props: {
               width: "100%",
             }}
           >
+            {/* Title */}
             <TeamHeader teamNumber={props.teamNumber} textAfter=" Avatar" />
+            {/* Flip camera button */}
             <TouchableOpacity
               style={styles.button}
               onPress={() => {
@@ -108,7 +108,6 @@ const CameraView = (props: {
               <Text> Flip </Text>
             </TouchableOpacity>
           </View>
-          {/* Take picture button */}
           <View
             style={{
               position: "absolute",
@@ -116,6 +115,7 @@ const CameraView = (props: {
               width: "100%",
             }}
           >
+            {/* Take picture button */}
             <TouchableOpacity
               style={cameraEnabled ? styles.button : styles.buttonDisabled}
               onPress={() => {

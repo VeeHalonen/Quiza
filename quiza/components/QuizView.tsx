@@ -65,7 +65,6 @@ const QuizView = (props: {
     setPoints(points);
   };
 
-  // TODO: finish this
   const finishQuiz2P = (
     points1: number,
     points2: number,
@@ -79,6 +78,7 @@ const QuizView = (props: {
     console.log("Team 2 points: " + points2 + "/" + numberOfQuestions / 2);
   };
 
+  // Quiz done
   if (status === EQuizStates.DONE) {
     return (
       <>
@@ -116,10 +116,13 @@ const QuizView = (props: {
       </>
     );
   }
+
+  // Still loading data
   if (status === EQuizStates.LOADING) {
     return <Text>{status}</Text>;
   }
 
+  // Error
   if (status == EQuizStates.ERROR) {
     return (
       <>

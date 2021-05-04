@@ -19,12 +19,15 @@ const QuestionHeaderWithAvatar = (props: {
 }) => {
   return (
     <View style={{ flexDirection: "row", alignItems: "center" }}>
+      {/* T */}
       <View style={{ margin: 5 }}>
         <Text style={styles.title}>T{props.teamNumber}</Text>
       </View>
+      {/* Avatar */}
       <View style={{ margin: 5 }}>
         <Image source={{ uri: props.avatar }} style={props.style} />
       </View>
+      {/* Q */}
       <View style={{ margin: 5 }}>
         <Text style={styles.subtitle}>Q{props.questionNumber}</Text>
       </View>

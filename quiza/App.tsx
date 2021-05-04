@@ -80,7 +80,6 @@ export default function App() {
             style: { color: "#fff", fontSize: 15 },
           }}
           rightComponent={{}}
-          // rightComponent={{ icon: "home", color: "#fff" }}
         />
         {/* Options UI */}
         {status === EAppStates.OPTIONS && (

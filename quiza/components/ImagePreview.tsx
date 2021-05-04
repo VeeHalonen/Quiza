@@ -22,6 +22,7 @@ const ImagePreview = (props: {
 
   return (
     <View style={styles.container}>
+      {/* Title */}
       <View style={styles.container}>
         <Text style={styles.subtitle}>Team {props.teamNumber} Avatar</Text>
       </View>
@@ -31,6 +32,7 @@ const ImagePreview = (props: {
           style={{ ...avatarStyle, width: 200, height: 200 }}
         />
       </View>
+      {/* Reject button */}
       <View style={{ ...styles.topLevelContainer }}>
         <Button
           onPress={props.onReject}
@@ -38,6 +40,7 @@ const ImagePreview = (props: {
           color={colors.secondary}
         />
       </View>
+      {/* Accept button */}
       <View style={{ ...styles.container }}>
         <Button
           color={colors.secondary}
