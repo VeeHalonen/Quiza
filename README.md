@@ -10,9 +10,9 @@
 
 **Language**: React Native
 
-**Google Play Link**: TBA
+**Google Play Link**: https://play.google.com/store/apps/details?id=veh.quiza (Review Pending)
 
-**Introduction Video**: TBA
+**Introduction Video**: https://www.youtube.com/watch?v=iLWy52PJ1m4
 
 <br>
 
