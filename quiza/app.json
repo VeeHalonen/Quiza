@@ -22,7 +22,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "veh.quiza"
+      "package": "veh.quiza",
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
