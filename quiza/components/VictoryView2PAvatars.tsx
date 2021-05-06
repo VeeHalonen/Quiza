@@ -22,10 +22,9 @@ const VictoryView2PAvatars = (props: {
   avatar2: string;
   restart: () => void;
 }) => {
-  const points1Size = 80;
-  const points2Size = 80;
-  const points1BorderWidth = 4;
-  const points2BorderWidth = 4;
+  const pointsSize = 80;
+  const pointsBorderWidth = 4;
+  const pointsFontSize = 18;
 
   return (
     <View>
@@ -57,8 +56,8 @@ const VictoryView2PAvatars = (props: {
               source={{ uri: props.avatar1 }}
               style={{
                 ...avatarStyle1,
-                width: points1Size,
-                height: points1Size,
+                width: pointsSize,
+                height: pointsSize,
               }}
             />
           </View>
@@ -70,8 +69,8 @@ const VictoryView2PAvatars = (props: {
               source={{ uri: props.avatar2 }}
               style={{
                 ...avatarStyle2,
-                width: points2Size,
-                height: points2Size,
+                width: pointsSize,
+                height: pointsSize,
               }}
             />
           </View>
@@ -87,8 +86,9 @@ const VictoryView2PAvatars = (props: {
             <PointsTotal
               points={props.points1}
               max={props.max}
-              size={points1Size}
-              borderWidth={points1BorderWidth}
+              size={pointsSize}
+              borderWidth={pointsBorderWidth}
+              fontSize={pointsFontSize}
             />
           </View>
         </View>
@@ -101,8 +101,9 @@ const VictoryView2PAvatars = (props: {
             <PointsTotal
               points={props.points2}
               max={props.max}
-              size={points2Size}
-              borderWidth={points2BorderWidth}
+              size={pointsSize}
+              borderWidth={pointsBorderWidth}
+              fontSize={pointsFontSize}
             />
           </View>
         </View>

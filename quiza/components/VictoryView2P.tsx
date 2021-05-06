@@ -18,12 +18,13 @@ const VictoryView2P = (props: {
   max: number;
   restart: () => void;
 }) => {
+  // Icon dimensions depend on who won
   const points1Size = props.points1 >= props.points2 ? 110 : 80;
   const points2Size = props.points2 >= props.points1 ? 110 : 80;
   const points1BorderWidth = props.points1 >= props.points2 ? 6 : 4;
   const points2BorderWidth = props.points2 >= props.points1 ? 6 : 4;
-  const fontSize1 = props.points1 >= props.points2 ? 28 : 20;
-  const fontSize2 = props.points2 >= props.points1 ? 28 : 20;
+  const fontSize1 = props.points1 >= props.points2 ? 28 : 18;
+  const fontSize2 = props.points2 >= props.points1 ? 28 : 18;
 
   return (
     <View>
