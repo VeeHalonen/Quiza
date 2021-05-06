@@ -79,8 +79,6 @@ Fixed a bug where the points icon would break in team mode if the point count wa
 
 <br>
 
-<br>
-
 **v2.1 (2021/05/03): Google Play v1.1.0**
 
 Custom icons and splash image added.
