@@ -73,6 +73,14 @@ An additional avatar mode option is available for Team VS Team mode. This option
 
 <br>
 
+**v2.2 (2021/05/06): Google Play v1.2.0**
+
+Fixed a bug where the points icon would break in team mode if the point count was a two-digit number.
+
+<br>
+
+<br>
+
 **v2.1 (2021/05/03): Google Play v1.1.0**
 
 Custom icons and splash image added.
