@@ -30,7 +30,7 @@ After all the questions have been answered, the quiz ends. A recap screen is sho
 
 <br>
 
-**[Release 2 (2021-05-02)](https://github.com/VeeHalonen/Quiza/tree/482d16d9d972da6ea72347449d85fe803c1a28f9): Features**
+**[Release 2 (2021-05-06)](https://github.com/VeeHalonen/Quiza/tree/f59e3cbb0bd6f809b1334b559471c875d9b30947): Features**
 
 Fixed a bug where the dropdown menus on the options screen were sometimes not responsive.
 
