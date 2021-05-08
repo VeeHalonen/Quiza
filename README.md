@@ -50,6 +50,8 @@ An additional avatar mode option is available for Team VS Team mode. This option
 
 - When taking the pictures, the camera does not show the user the actual dimensions of the avatar until the confirmation screen. This makes it difficult to estimate how the picture will be cropped to fit the avatar.
 
+- Moving the app to an SD card may cause it to crash on launch. More testing data required on this.
+
 - The app adaptive icon has not been customized.
 
 <br>
