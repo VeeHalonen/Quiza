@@ -44,6 +44,8 @@ An additional avatar mode option is available for Team VS Team mode. This option
 
 - The app has not been sufficiently tested on different screen sizes. Absolute pixel values had to be set for certain components, which could cause issues with devices of different sizes. The camera aspect ratio is also statically set to 16:9, which could cause distortion of the image on some devices.
 
+- Having the device font size set to large can break the UI.
+
 - Pictures taken with the camera take a long time to be processed, and the screen may not give sufficient feedback to the user on what is happening. The "Take pic" button does become unresponsive and informs the user that the picture is loading, but the camera view remains active.
 
 - The pictures are stored within the app cache, but the cache is not automatically cleared when the files become unnecessary. This could lead to storage issues as the number of pictures taken increases.
