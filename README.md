@@ -1,4 +1,4 @@
-**Name**: Veera Halonen
+**Course**: Mobile App Development
 
 **Topic**: A quiz app that pulls trivia from an API and quizzes the user.
 
@@ -11,8 +11,6 @@
 **Language**: React Native
 
 **Google Play Link**: https://play.google.com/store/apps/details?id=veh.quiza
-
-**Introduction Video**: https://www.youtube.com/watch?v=iLWy52PJ1m4
 
 <br>
 
